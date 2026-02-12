@@ -1,4 +1,3 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -24,7 +23,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -44,13 +42,17 @@ models:
 
     staging:
       materialized: view
+
+      # Ajout du modèle Airbnb
+      stg_airbnb:
+        schema: stg_airbnb
       google_analytics:
         schema: stg_google_analytics
       sales_database:
         schema: stg_sales_database
       google_sheets:
-        schema: stg_google_sheets
-
+        schema: stg_google_sheets 
+      
     intermediate:
       materialized: view
       sales_database: 
@@ -60,4 +62,3 @@ models:
     mart:
       schema: mart
       materialized: table
-
