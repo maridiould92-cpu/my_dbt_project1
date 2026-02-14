@@ -1,0 +1,63 @@
+version: 2
+
+models:
+
+  - name: mrt_localbike__executive_kpis
+    description: "{{ doc('mrt_localbike__executive_kpis') }}"
+    columns:
+      - name: total_revenue
+        description: "Total net revenue generated across all sales."
+        tests:
+          - not_null:
+              severity: warn
+          - dbt_utils.expression_is_true:
+              expression: "total_revenue >= 0"
+              severity: warn
+
+  - name: mrt_localbike__daily_report
+    description: "{{ doc('mrt_localbike__daily_report') }}"
+    columns:
+      - name: total_revenue
+        description: "Daily aggregated revenue."
+        tests:
+          - not_null:
+              severity: warn
+          - dbt_utils.expression_is_true:
+              expression: "total_revenue >= 0"
+              severity: warn
+
+  - name: mrt_localbike__store_performance
+    description: "{{ doc('mrt_localbike__store_performance') }}"
+    columns:
+      - name: total_revenue
+        description: "Total revenue generated per store."
+        tests:
+          - not_null:
+              severity: warn
+          - dbt_utils.expression_is_true:
+              expression: "total_revenue >= 0"
+              severity: warn
+
+  - name: mrt_localbike__category_performance
+    description: "{{ doc('mrt_localbike__category_performance') }}"
+    columns:
+      - name: total_revenue
+        description: "Total revenue generated per category."
+        tests:
+          - not_null:
+              severity: warn
+          - dbt_utils.expression_is_true:
+              expression: "total_revenue >= 0"
+              severity: warn
+
+  - name: mrt_localbike__product_performance
+    description: "{{ doc('mrt_localbike__product_performance') }}"
+    columns:
+      - name: total_revenue
+        description: "Total revenue generated per product."
+        tests:
+          - not_null:
+              severity: warn
+          - dbt_utils.expression_is_true:
+              expression: "total_revenue >= 0"
+              severity: warn

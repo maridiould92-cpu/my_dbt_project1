@@ -1,0 +1,50 @@
+version: 2
+
+models:
+
+  - name: int_localbike__sales
+    description: "{{ doc('int_localbike__sales') }}"
+
+    columns:
+
+      - name: order_id
+        description: "Unique identifier of the order."
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: product_id
+        description: "Unique identifier of the product."
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: order_date
+        description: "Date when the order was placed."
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: customer_id
+        description: "Identifier of the customer."
+
+      - name: store_id
+        description: "Identifier of the store where the order was placed."
+
+      - name: staff_id
+        description: "Identifier of the staff member handling the order."
+
+      - name: quantity
+        description: "Number of units sold in the order line."
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: line_revenue
+        description: "Revenue generated for the order line."
+        tests:
+          - not_null:
+              severity: warn
+          - dbt_utils.expression_is_true:
+              expression: "line_revenue >= 0"
+              severity: warn
