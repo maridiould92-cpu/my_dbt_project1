@@ -2,6 +2,15 @@
 
 ## 📌 Project Overview
 
+This repository is named my_dbt_project1.
+
+It was initially created for coursework exercises.
+The LocalBike Analytics project is implemented inside this repository as a structured dbt module, not as a separate repository.
+
+LocalBike models are organized in dedicated subfolders within the existing dbt structure.
+
+LocalBike is a functional analytics module inside my_dbt_project1.
+
 This project aims to build a complete analytics pipeline for LocalBike sales data using:
 
 - dbt (data transformation)
@@ -13,6 +22,15 @@ The objective is to transform raw transactional data into clean, tested, busines
 ---
 
 ## 🏗 Architecture
+models/
+ ├── staging/
+ │    └── stg_localbike/
+ │
+ ├── intermediate/
+ │    └── int_localbike/
+ │
+ └── mart/
+      └── mrt_localbike/
 
 The project follows a modern analytics engineering architecture:
 
