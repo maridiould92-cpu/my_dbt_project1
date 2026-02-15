@@ -55,7 +55,8 @@ staffs as (
 )
 
 select
-    -- Order info
+
+    -- Order
     o.order_id,
     o.order_date,
     o.order_status,
@@ -77,7 +78,6 @@ select
     -- Product
     oi.product_id,
     p.product_name,
-    p.list_price as product_list_price,
     p.model_year,
 
     -- Category / Brand
@@ -86,13 +86,11 @@ select
     p.brand_id,
     b.brand_name,
 
-    -- Metrics
+    -- Line Metrics
     oi.quantity,
     oi.list_price as item_price,
     oi.discount,
-
-    -- Revenue calculation
-    (oi.quantity * oi.list_price) * (1 - oi.discount) as line_revenue
+    oi.line_revenue
 
 from orders o
 left join order_items oi on o.order_id = oi.order_id
