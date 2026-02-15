@@ -1,30 +1,28 @@
 {% docs mrt_localbike__executive_kpis %}
 
-# Executive KPIs – Local Bike
+# Executive KPIs – LocalBike
 
-This model provides a high-level overview of business performance.
+This mart model provides high-level strategic KPIs for executive reporting.
 
-It is designed for the top section of the dashboard (KPI cards).
+It aggregates all sales data to produce global performance indicators used in dashboards.
 
-## Grain
-Single row summary.
+## Key Metrics
 
-## Metrics Included
+- **total_revenue**: Total net revenue generated across all sales.
+- **total_quantity**: Total number of products sold.
+- **total_orders**: Total number of distinct orders.
+- **average_order_value**: Average revenue per order.
 
-- total_revenue: Total net revenue generated
-- total_quantity: Total units sold
-- total_orders: Number of distinct orders
-- total_customers: Number of distinct customers
-- avg_order_value: Average revenue per order
+## Business Purpose
 
-## Business Value
+This table is designed for executive dashboards in Power BI.
+It answers questions such as:
 
-This table allows leadership to quickly assess:
+- What is the overall revenue?
+- How many orders were placed?
+- What is the average basket value?
 
-- Revenue performance
-- Sales volume
-- Customer activity
-- Overall business growth
+This is a one-row aggregated table.
 
 {% enddocs %}
 
@@ -32,29 +30,26 @@ This table allows leadership to quickly assess:
 
 {% docs mrt_localbike__daily_report %}
 
-# Daily Sales Report – Local Bike
+# Daily Sales Report – LocalBike
 
-This model aggregates revenue and sales metrics at a daily level.
+This mart model aggregates sales performance at a daily level.
 
-## Grain
-One row per order_date.
+## Key Metrics
 
-## Metrics
-
-- total_revenue
-- total_quantity
-- total_orders
+- **order_date**
+- **total_revenue**
+- **total_quantity**
+- **total_orders**
 
 ## Business Purpose
 
-Used to analyze:
+Used for time-series analysis in dashboards:
 
-- Daily revenue trends
+- Revenue trends over time
 - Sales seasonality
-- Growth patterns
-- Performance fluctuations
+- Daily performance monitoring
 
-This model feeds time-series visualizations in Power BI.
+Designed for line charts and time-based visuals.
 
 {% enddocs %}
 
@@ -62,27 +57,27 @@ This model feeds time-series visualizations in Power BI.
 
 {% docs mrt_localbike__store_performance %}
 
-# Store Performance – Local Bike
+# Store Performance – LocalBike
 
-This model aggregates sales performance by store.
+This mart model analyzes sales performance by store.
 
-## Grain
-One row per store.
+## Key Metrics
 
-## Metrics
+- **store_id**
+- **store_name**
+- **total_revenue**
+- **total_quantity**
+- **total_orders**
 
-- total_revenue
-- total_quantity
-- total_orders
+## Business Purpose
 
-## Business Value
+Enables comparison between stores:
 
-Helps operations team:
+- Which store generates the most revenue?
+- Which store sells the highest volume?
+- Performance benchmarking across regions.
 
-- Compare store performance
-- Identify top-performing locations
-- Detect underperforming stores
-- Optimize inventory and staffing
+Used for bar charts and ranking visuals.
 
 {% enddocs %}
 
@@ -90,25 +85,26 @@ Helps operations team:
 
 {% docs mrt_localbike__category_performance %}
 
-# Category Performance – Local Bike
+# Category Performance – LocalBike
 
-This model aggregates revenue by product category.
+This mart model aggregates revenue and sales quantity per product category.
 
-## Grain
-One row per category.
+## Key Metrics
 
-## Metrics
+- **category_id**
+- **category_name**
+- **total_revenue**
+- **total_quantity**
 
-- total_revenue
-- total_quantity
+## Business Purpose
 
-## Business Value
+Supports product portfolio analysis:
 
-Allows identification of:
+- Which categories generate the most revenue?
+- Which categories have the highest sales volume?
+- Revenue distribution across product types.
 
-- Best-selling product segments
-- Strategic product focus areas
-- Category growth opportunities
+Used for bar charts and contribution analysis visuals.
 
 {% enddocs %}
 
@@ -116,25 +112,25 @@ Allows identification of:
 
 {% docs mrt_localbike__product_performance %}
 
-# Product Performance – Local Bike
+# Product Performance – LocalBike
 
-This model provides aggregated performance at product level.
+This mart model evaluates individual product performance.
 
-## Grain
-One row per product.
+## Key Metrics
 
-## Metrics
+- **product_id**
+- **product_name**
+- **total_revenue**
+- **total_quantity**
 
-- total_revenue
-- total_quantity
+## Business Purpose
 
-## Business Value
+Supports detailed product analysis:
 
-Supports:
+- Top-selling products
+- Revenue contribution by product
+- Product ranking analysis
 
-- Product optimization
-- Best-seller identification
-- Pricing strategy review
-- Inventory prioritization
+Designed for detailed analytical dashboards and product ranking visuals.
 
 {% enddocs %}

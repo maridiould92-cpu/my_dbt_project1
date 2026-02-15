@@ -1,8 +1,8 @@
 {% docs int_localbike__sales %}
 
-# Sales Enriched – Intermediate Model
+# Intermediate Sales Model
 
-This model consolidates all business entities into a single enriched transactional dataset.
+This intermediate model consolidates all business entities related to sales.
 
 It joins:
 
@@ -13,44 +13,16 @@ It joins:
 - Brands
 - Customers
 - Stores
-- Staffs
+- Staff
 
-## Grain
+Grain of the model:
+One row per order line (order_id + product_id).
 
-One row per product per order.
+This model is the base layer used for marts and KPI calculations.
 
-(order_id + product_id)
+Key metric:
+- line_revenue: revenue generated per product per order
 
-## Business Purpose
-
-This model centralizes all business logic before aggregation.
-
-It ensures:
-
-- Consistency of revenue calculation
-- Centralized joins
-- Reusable business definitions
-- Clean foundation for mart-level KPI aggregation
-
-## Main Metric
-
-### line_revenue
-
-Calculated as:
-
-(quantity × item_price) × (1 - discount)
-
-Represents net revenue generated for one order line.
-
-## Why This Layer Exists
-
-Instead of repeating joins and calculations inside mart models,
-all business logic is centralized here.
-
-Mart models only perform aggregations.
-
-Architecture:
-
-staging → intermediate → mart → BI
+This layer prepares clean and business-ready data for aggregation in marts.
 
 {% enddocs %}
