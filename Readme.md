@@ -66,6 +66,7 @@ Business-oriented aggregated models:
 
 ## 📊 Power BI Dashboard
 
-The Power BI report file is included: https://github.com/maridiould92-cpu/local-bike-powerbi-dashboard
+The Power BI report file is included: view the Power BI file
+
 
 
